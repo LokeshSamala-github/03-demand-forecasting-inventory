@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements-dev.txt
+
+      - name: Lint
+        run: ruff check .
+
+      - name: Test
+        run: pytest -v --cov=demand_forecast --cov-report=term-missing
+
+      - name: Pipeline smoke test (small run, proves the CLI entry points work end to end)
+        run: |
+          python data/generate_data.py --n-days 400
+          PYTHONPATH=src python -m demand_forecast.forecast --test-days 21
+          PYTHONPATH=src python -m demand_forecast.optimize
