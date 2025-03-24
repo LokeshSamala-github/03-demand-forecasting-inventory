@@ -1,0 +1,58 @@
+{
+  "categories": {
+    "sku_id": [
+      "SKU-B-01",
+      "SKU-B-02",
+      "SKU-B-03",
+      "SKU-B-04",
+      "SKU-B-05",
+      "SKU-EA-01",
+      "SKU-EA-02",
+      "SKU-EA-03",
+      "SKU-EA-04",
+      "SKU-EA-05",
+      "SKU-H-01",
+      "SKU-H-02",
+      "SKU-H-03",
+      "SKU-H-04",
+      "SKU-H-05",
+      "SKU-PC-01",
+      "SKU-PC-02",
+      "SKU-PC-03",
+      "SKU-PC-04",
+      "SKU-PC-05",
+      "SKU-S-01",
+      "SKU-S-02",
+      "SKU-S-03",
+      "SKU-S-04",
+      "SKU-S-05"
+    ],
+    "category": [
+      "Beverages",
+      "Electronics-Accessories",
+      "Household",
+      "Personal-Care",
+      "Snacks"
+    ]
+  },
+  "feature_columns": [
+    "date",
+    "sku_id",
+    "category",
+    "units",
+    "promo_flag",
+    "dow",
+    "is_weekend",
+    "month",
+    "day_of_year",
+    "week_of_year",
+    "lag_7",
+    "lag_14",
+    "lag_21",
+    "lag_28",
+    "roll_mean_7",
+    "roll_std_7",
+    "roll_mean_28",
+    "roll_std_28"
+  ]
+}
